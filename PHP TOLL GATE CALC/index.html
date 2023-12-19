@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Philippines Toll Gate Fee Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calculator">
+    <h2>Philippines Toll Gate Fee Calculator</h2>
+    <form id="tollForm">
+      <div class="input-group">
+        <label for="expressway">Expressway:</label>
+        <select id="expressway" name="expressway" onchange="toggleExpresswayFields()" required>
+          <option value="TPLEX">TPLEX</option>
+          <option value="NLEX-SCTEX">NLEX-SCTEX</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="tplexPoints">
+        <label for="entry_tplex">Entry Point:</label>
+        <select id="entry_tplex" name="entry_tplex" required>
+          <option value="La Paz">La Paz</option>
+        </select>
+
+        <label for="exit_tplex">Exit Point:</label>
+        <select id="exit_tplex" name="exit_tplex" required>
+          <option value="Victoria">Victoria</option>
+          <option value="Gerona">Gerona</option>
+        </select>
+
+        <label for="class_tplex">Class:</label>
+        <select id="class_tplex" name="class_tplex" required>
+          <option value="class_1">Class 1</option>
+          <option value="class_2">Class 2</option>
+          <option value="class_3">Class 3</option>
+        </select>
+        <label for="vehicle_tplex">Vehicle:</label>
+        <select id="vehicle_tplex" name="vehicle_tplex" required>
+        </select>
+      </div>
+
+      <div class="input-group" id="nlexSctexPoints" style="display: none;">
+        <label for="entry_nlex_sctex">Entry Point:</label>
+        <select id="entry_nlex_sctex" name="entry_nlex_sctex" required>
+          <option value="BWK">BWK</option>
+          <option value="MIN">MIN</option>
+          <option value="KAR">KAR</option>
+          <option value="VAL">VAL</option>
+          <option value="MEY"> MEY</option>
+          <option value="MAR">MAR</option>
+          <option value="CDV">CDV</option>
+          <option value="BOC">BOC</option>
+          <option value="TAM">TAM</option>
+          <option value="BAL">BAL</option>
+          <option value="STR">STR</option>
+          <option value="PUL">PUL</option>
+          <option value="SNM">SNM</option>
+          <option value="SNF">SNF</option>
+          <option value="MXC">MXC</option>
+          <option value="ANG">ANG</option>
+          <option value="DAU">DAU</option>
+          <option value="TIPO/SFEX">TIPO/SFEX</option>
+          <option value="DIN">DIN</option>
+          <option value="FLOR">FLOR</option>
+          <option value="PORAC">PORAC</option>
+          <option value="CLARK S">CLARK S</option>
+          <option value="MAB">MAB</option>
+          <option value="CLARK N">CLARK N</option>
+          <option value="DOLORES">DOLORES</option>
+          <option value="CONC">CONC</option>
+          <option value="S. MIGUEL">S. MIGUEL</option>
+          <option value="TARLAC">TARLAC</option>
+        </select>
+
+        <label for="exit_nlex_sctex">Exit Point:</label>
+        <select id="exit_nlex_sctex" name="exit_nlex_sctex" required>
+          <option value="Mindanao Avenue">Mindanao Avenue</option>
+          <option value="Karuhatan">Karuhatan</option>
+          <option value="Valenzuela">Valenzuela</option>
+          <option value="Lawang Bato">Lawang Bato</option>
+          <option value="Meycauayan">Meycauayan</option>
+          <option value="Marilao">Marilao</option>
+          <option value="Ciudad de Victoria">Ciudad de Victoria</option>
+          <option value="Bocaue">Bocaue</option>
+          <option value="Tambubong">Tambubong</option>
+          <option value="Balagtas">Balagtas</option>
+          <option value="Tabang">Tabang</option>
+          <option value="Sta. Rita">Sta. Rita</option>
+          <option value="Pulilan">Pulilan</option>
+          <option value="San Simon">San Simon</option>
+          <option value="San Fernando">San Fernando</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Angeles">Angeles</option>
+          <option value="Dau">Dau</option>
+          <option value="Sta. Ines">Sta. Ines</option>
+          <option value="Tipo/SFEX">Tipo/SFEX</option>
+          <option value="Dinalupihan">Dinalupihan</option>
+          <option value="Floridablanca">Floridablanca</option>
+          <option value="Porac">Porac</option>
+          <option value="Clark South">Clark South</option>
+          <option value="Mabalacat (Mabiga)">Mabalacat (Mabiga)</option>
+          <option value="Clark North">Clark North</option>
+          <option value="Dolores">Dolores</option>
+          <option value="Concepcion">Concepcion</option>
+          <option value="San Miguel">San Miguel</option>
+          <option value="Tarlac">Tarlac</option>
+          
+        </select>
+
+        <!-- Class options for NLEX-SCTEX -->
+        <label for="class_nlex_sctex">Class:</label>
+        <select id="class_nlex_sctex" name="class_nlex_sctex" required>
+          <option value="class_1">Class 1</option>
+          <option value="class_2">Class 2</option>
+          <option value="class_3">Class 3</option>
+          <!-- Add more class options for NLEX-SCTEX -->
+        </select>
+
+        <!-- Vehicle options for NLEX-SCTEX -->
+        <label for="vehicle_nlex_sctex">Vehicle:</label>
+        <select id="vehicle_nlex_sctex" name="vehicle_nlex_sctex" required>
+          <!-- Vehicle options will be populated dynamically -->
+        </select>
+      </div>
+
+      <button type="button" onclick="calculateToll()">Calculate Toll Fee</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function toggleExpresswayFields() {
+      var selectedExpressway = document.getElementById('expressway').value;
+      var tplexFields = document.getElementById('tplexPoints');
+      var nlexSctexFields = document.getElementById('nlexSctexPoints');
+
+      if (selectedExpressway === 'TPLEX') {
+  tplexFields.style.display = 'block';
+  nlexSctexFields.style.display = 'none';
+  } else if (selectedExpressway === 'NLEX-SCTEX') {
+  tplexFields.style.display = 'none';
+  nlexSctexFields.style.display = 'block';
+  
+  toggleVehicleOptions(document.getElementById("class_nlex_sctex").value);
+  }
+    }
+
+    
+    function toggleVehicleOptions(selectedClass, vehicleDropdownId) {
+      const class1Vehicles = ["car", "jeepney", "Van", "pick-up", "Motorcycle"]; // Class 1 vehicles
+      const class2Vehicles = ["bus", "truck"]; // Class 2 vehicles
+      const class3Vehicles = ["large truck", "large truck with trailer"]; // Class 3 vehicles
+
+      let vehicleOptions = [];
+
+      switch (selectedClass) {
+        case "class_1":
+          vehicleOptions = class1Vehicles;
+          break;
+        case "class_2":
+          vehicleOptions = class2Vehicles;
+          break;
+        case "class_3":
+          vehicleOptions = class3Vehicles;
+          break;
+        default:
+          break;
+      }
+      const vehicleDropdown = document.getElementById(vehicleDropdownId);
+      // Clear existing options
+      vehicleDropdown.innerHTML = "";
+
+      // Add options based on the selected class
+      vehicleOptions.forEach((vehicle) => {
+        const option = document.createElement("option");
+        option.value = vehicle;
+        option.text = vehicle.charAt(0).toUpperCase() + vehicle.slice(1);
+        vehicleDropdown.appendChild(option);
+      });
+      
+    }
+    document.getElementById("class_tplex").addEventListener("change", function () {
+      const selectedClass = this.value;
+      const selectedExpressway = document.getElementById('expressway').value;
+
+      if (selectedExpressway === 'TPLEX') {
+        toggleVehicleOptions(selectedClass, "vehicle_tplex");
+      }
+    });
+
+    document.getElementById("class_nlex_sctex").addEventListener("change", function () {
+      const selectedClass = this.value;
+      const selectedExpressway = document.getElementById('expressway').value;
+
+      if (selectedExpressway === 'NLEX-SCTEX') {
+        toggleVehicleOptions(selectedClass, "vehicle_nlex_sctex");
+      }
+    });
+
+    function calculateToll() {
+  const selectedExpressway = document.getElementById('expressway').value;
+  let entryPoint, exitPoint, selectedClass, selectedVehicle;
+
+  if (selectedExpressway === 'TPLEX') {
+    entryPoint = document.getElementById('entry_tplex').value;
+    exitPoint = document.getElementById('exit_tplex').value;
+    selectedClass = document.getElementById('class_tplex').value;
+    selectedVehicle = document.getElementById('vehicle_tplex').value;
+  } else if (selectedExpressway === 'NLEX-SCTEX') {
+    entryPoint = document.getElementById('entry_nlex_sctex').value;
+    exitPoint = document.getElementById('exit_nlex_sctex').value;
+    selectedClass = document.getElementById('class_nlex_sctex').value;
+    selectedVehicle = document.getElementById('vehicle_nlex_sctex').value;
+  }
+
+  
+  let tollFee = calculateTollFee(selectedExpressway, entryPoint, exitPoint, selectedClass, selectedVehicle);
+
+  
+  displayTollFee(tollFee);
+}
+
+function calculateTollFee(expressway, entryPoint, exitPoint, vehicleClass, vehicleType) {
+    const tollFeeStructure = {
+      TPLEX: {
+        'La Paz - Victoria': {
+          class_1_car: 30.00,
+          class_2_bus: 76.00,
+          class_3_large_truck: 91.00,
+          class_3_large_truck_with_trailer: 91.00,
+        },
+        },
+      'NLEX-SCTEX': {
+        'BWK - Mindanao Avenue': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+        },
+        'BWK - Karuhatan': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Valenzuela': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Lawang Bato': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Meycauayan': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Marilao': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Ciudad de Victoria': {
+         class_1_car: 77.00,
+         class_1_jeepney: 77.00,
+         class_1_Van: 77.00,
+         class_1_pick_up: 77.00,
+         class_1_Motorcycle: 77.00,
+         class_2_bus: 193.00,
+         class_2_truck: 193.00,
+         class_3_large_truck: 232.00,
+         class_3_large_truck_with_trailer: 232.00,
+      },
+      'BWK - Bocaue': {
+         class_1_car: 84.00,
+         class_1_jeepney: 84.00,
+         class_1_Van: 84.00,
+         class_1_pick_up: 84.00,
+         class_1_Motorcycle: 84.00,
+         class_2_bus: 210.00,
+         class_2_truck: 210.00,
+         class_3_large_truck: 252.00,
+         class_3_large_truck_with_trailer: 252.00,
+      },
+      'BWK - Tambubong': {
+         class_1_car: 88.00,
+         class_1_jeepney: 88.00,
+         class_1_Van: 88.00,
+         class_1_pick_up: 88.00,
+         class_1_Motorcycle: 88.00,
+         class_2_bus: 219.00,
+         class_2_truck: 219.00,
+         class_3_large_truck: 263.00,
+         class_3_large_truck_with_trailer: 263.00,
+      },
+      'BWK - Balagtas': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Tabang': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Sta. Rita': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Pulilan': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - San Simon': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - San Fernando': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Mexico': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Angeles': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Dau': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Sta. Ines': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Tipo/SFEX': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Dinalupihan': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Floridablanca': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Porac': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Clark South': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Mabalacat (Mabiga)': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Clark North': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Dolores': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+
+      'BWK - Concepcion': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - San Miguel': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+      'BWK - Tarlac': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+      },
+
+        'MIN - Karuhatan': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pick_up: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 172.00,
+         class_2_truck: 172.00,
+         class_3_large_truck: 206.00,
+         class_3_large_truck_with_trailer: 206.00,
+        }}
+  
+
+  }
+    const class1Fee = tollFeeStructure[expressway]?.[`${entryPoint} - ${exitPoint}`]?.[`class_1_${vehicleType}`] || 0;
+    const class2Fee = tollFeeStructure[expressway]?.[`${entryPoint} - ${exitPoint}`]?.[`class_2_${vehicleType}`] || 0;
+    const class3Fee = tollFeeStructure[expressway]?.[`${entryPoint} - ${exitPoint}`]?.[`class_3_${vehicleType}`] || 0;
+
+    
+    const totalFee = class1Fee + class2Fee + class3Fee;
+
+    return totalFee;
+  }
+
+  function displayTollFee(fee) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Total Toll Fee: ₱ ${fee}`; 
+  }
+</script>
+</body>
+</html>
