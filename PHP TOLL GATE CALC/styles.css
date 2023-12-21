@@ -1,20 +1,23 @@
+
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  background-image: url(img/Screenshot_1.png);
-  background-color: #ffd8bf;
-  height: 400px; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; /
+  background-image: url(img/wow.png);
+  height: 690px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
-
 .calculator {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
-  background-color: #86ccc3;
+  background-color: #9acab2;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(73, 1, 63, 0.1);
 }
 
@@ -71,4 +74,25 @@ button:hover {
   margin: 0;
   font-weight: bold;
   color: #2e312e;
+}
+
+/* Media queries for responsive design */
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+  .calculator {
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Tablets and larger screens */
+@media screen and (min-width: 769px) {
+  .calculator {
+    padding: 20px;
+  }
 }
