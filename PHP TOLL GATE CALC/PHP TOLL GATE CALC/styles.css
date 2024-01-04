@@ -1,21 +1,38 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-image: url(img/1-000e.png);
+  margin: 0;
+  padding: 0;
+  background-image: url(img/7598005.jpg);
   background-color: #ffd8bf;
-  height: 1920px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
+  background-attachment: fixed; 
 }
 
 .calculator {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #86ccc3;
-  padding: 20px;
+  width: 80%;
+  max-width: 600px; /* Adjust as needed */
+  margin: 50px auto;
+  background-color: #52fc98;
+  padding: 40px 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(73, 1, 63, 0.1);
+}
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  .calculator {
+    width: 90%;
+    padding: 30px 15px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .calculator {
+    width: 90%;
+    padding: 20px 10px;
+  }
 }
 
 h2 {
@@ -38,22 +55,23 @@ label {
 select,
 button {
   width: 100%;
-  padding: 8px;
+  padding: 10px; /* Increased padding for better touch experience on mobile */
   border-radius: 5px;
   border: 1px solid #c9b7b7;
   box-sizing: border-box;
+  font-size: 16px; /* Adjusted font size for better readability */
 }
 
 button {
-  background-color: #2e312e;
+  background-color: #000000;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out; /* Smooth button hover effect */
 }
 
 button:hover {
-  background-color: #020202;
+  background-color: #504141;
 }
 
 .result {
@@ -74,22 +92,37 @@ button:hover {
 }
 
 /* Media queries for responsive design */
-
-/* Mobile devices */
 @media screen and (max-width: 768px) {
   .calculator {
-    padding: 10px;
-    max-width: 90%;
+    padding: 15px; /* Adjusted padding for smaller screens */
+    margin: 20px auto; /* Adjusted margin for better centering */
   }
 
   h2 {
     font-size: 1.2em;
   }
+
+  select,
+  button {
+    padding: 8px; /* Adjusted padding for smaller screens */
+    font-size: 14px; /* Adjusted font size for smaller screens */
+  }
+}
+/* Add styles for the restart button */
+.restart-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth button hover effect */
+  border: none;
 }
 
-/* Tablets and larger screens */
-@media screen and (min-width: 769px) {
-  .calculator {
-    padding: 20px;
-  }
+.restart-btn:hover {
+  background-color: #504141;
 }

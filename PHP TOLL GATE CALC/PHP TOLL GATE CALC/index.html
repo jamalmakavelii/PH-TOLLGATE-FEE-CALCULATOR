@@ -17,6 +17,7 @@
           <option value="CALAX">CALAX</option>
         </select>
       </div>
+      
 
       <div class="input-group" id="tplexPoints">
         <label for="entry_tplex">Entry Point:</label>
@@ -212,7 +213,26 @@
     </form>
 
     <div id="result" class="result"></div>
+    <button class="restart-btn" onclick="resetForm()">Reset</button>
   </div>
+  
+  <script>
+
+   function calculateToll() {
+   }
+   function resetForm() {
+  document.getElementById('tollForm').reset();
+  document.getElementById('result').textContent = '';
+
+  document.getElementById('vehicle_tplex').innerHTML = '<option value="" selected disabled>Select Vehicle</option>';
+  document.getElementById('vehicle_nlex_sctex').innerHTML = '<option value="" selected disabled>Select Vehicle</option>';
+  document.getElementById('vehicle_calax').innerHTML = '<option value="" selected disabled>Select Vehicle</option>';
+
+  document.getElementById('tplexPoints').style.display = 'none';
+  document.getElementById('nlexSctexPoints').style.display = 'none';
+  document.getElementById('calaxPoints').style.display = 'none';
+}
+ </script>
 
   <script>
    function toggleExpresswayFields() {
@@ -237,7 +257,7 @@
    }
 
 function toggleVehicleOptions(selectedClass, vehicleDropdownId) {
-  const class1Vehicles = ["car", "jeepney", "Van", "pickup", "Motorcycle"];
+  const class1Vehicles = ["car", "jeepney", "Van", "pick-up", "Motorcycle"];
   const class2Vehicles = ["bus", "truck"];
   const class3Vehicles = ["largetruck", "largetruckwithtrailer"];
 
@@ -5582,11 +5602,10 @@ function displayTollFee(tollFee) {
   const resultElement = document.getElementById('result');
 
   if (tollFee === 0) {
-    resultElement.innerHTML = "N/A"; // Display "N/A" instead of 0
+    resultElement.innerHTML = "No Exit"; 
   } else {
     resultElement.innerHTML = "Toll Fee: ₱ " + tollFee.toFixed(2);
   }
-
 }
 </script>
 </body>
