@@ -11,15 +11,17 @@
       <div class="input-group">
         <label for="expressway">Expressway:</label>
         <select id="expressway" name="expressway" onchange="toggleExpresswayFields()" required>
+          <option value="" selected disabled>Select Expressway</option>
           <option value="TPLEX">TPLEX</option>
           <option value="NLEX-SCTEX">NLEX-SCTEX</option>
+          <option value="CALAX">CALAX</option>
         </select>
       </div>
 
       <div class="input-group" id="tplexPoints">
         <label for="entry_tplex">Entry Point:</label>
         <select id="entry_tplex" name="entry_tplex" required>
-          <option value="La Paz">La Paz</option>
+         <option value="" selected disabled>Select Entry Point</option>
           <option value="Victoria">Victoria</option>
           <option value="Gerona">Gerona</option>
           <option value="Paniqui">Paniqui</option>
@@ -27,33 +29,36 @@
           <option value="Carmen">Carmen</option>
           <option value="Urdaneta">Urdaneta</option>
           <option value="Binalonan">Binalonan</option>
-          <option value="Pozorrubio">Pozorrubio</option>
-          <option value="Sison">Sison</option>
-        </select>
-
-        <label for="exit_tplex">Exit Point:</label>
-        <select id="exit_tplex" name="exit_tplex" required>
-          <option value="Victoria">Victoria</option>
-          <option value="Gerona">Gerona</option>
-          <option value="Gerona">Gerona</option>
-          <option value="Paniqui">Paniqui</option>
-          <option value="Moncada">Moncada</option>
-          <option value="Carmen">Carmen</option>
-          <option value="Urdaneta">Urdaneta</option>
-          <option value="Binalonan">Binalonan</option>
-          <option value="Pozorrubio">Pozorrubio</option>
+          <option value="Pozorrubbio">Pozorrubbio</option>
           <option value="Sison">Sison</option>
           <option value="Rosario">Rosario</option>
         </select>
 
+        <label for="exit_tplex">Exit Point:</label>
+        <select id="exit_tplex" name="exit_tplex" required>
+        <option value="" selected disabled>Select Exit Point</option>
+          <option value="LPZ">LPZ</option>
+          <option value="VCTRIA">VCTRIA</option>
+          <option value="GRNA">GRNA</option>
+          <option value="PNQUI">PNQUI</option>
+          <option value="MNCDA">MNCDA</option>
+          <option value="CRMN">CRMN</option>
+          <option value="URDNTA">URDNTA</option>
+          <option value="BNLN">BNLN</option>
+          <option value="PZRBIO">PZRBIO</option>
+          <option value="SSN">SSN</option>
+        </select>
+
         <label for="class_tplex">Class:</label>
         <select id="class_tplex" name="class_tplex" required>
+          <option value="" selected disabled>Select Class</option>
           <option value="class_1">Class 1</option>
           <option value="class_2">Class 2</option>
           <option value="class_3">Class 3</option>
         </select>
         <label for="vehicle_tplex">Vehicle:</label>
         <select id="vehicle_tplex" name="vehicle_tplex" required>
+        <option value="" selected disabled>Select Vehicle</option>
         <option value="class_1_car">Car</option>
         <option value="class_1_jeepney">Jeepney</option>
         <option value="class_1_Van">Van</option>
@@ -69,6 +74,7 @@
       <div class="input-group" id="nlexSctexPoints" style="display: none;">
         <label for="entry_nlex_sctex">Entry Point:</label>
         <select id="entry_nlex_sctex" name="entry_nlex_sctex" required>
+         <option value="" selected disabled>Select Entry Point</option>
           <option value="BWK">BWK</option>
           <option value="MIN">MIN</option>
           <option value="KAR">KAR</option>
@@ -101,6 +107,7 @@
 
         <label for="exit_nlex_sctex">Exit Point:</label>
         <select id="exit_nlex_sctex" name="exit_nlex_sctex" required>
+          <option value="" selected disabled>Select Exit Point</option>
           <option value="BWK">BWK</option>
           <option value="Mindanao Avenue">Mindanao Avenue</option>
           <option value="Karuhatan">Karuhatan</option>
@@ -138,6 +145,7 @@
        
         <label for="class_nlex_sctex">Class:</label>
         <select id="class_nlex_sctex" name="class_nlex_sctex" required>
+         <option value="" selected disabled>Select Class</option>
           <option value="class_1">Class 1</option>
           <option value="class_2">Class 2</option>
           <option value="class_3">Class 3</option>
@@ -145,6 +153,7 @@
         
         <label for="vehicle_nlex_sctex">Vehicle:</label>
         <select id="vehicle_nlex_sctex" name="vehicle_nlex_sctex" required>
+        <option value="" selected disabled>Select Vehicle</option>
         <option value="class_1_car">Car</option>
         <option value="class_1_jeepney">Jeepney</option>
         <option value="class_1_Van">Van</option>
@@ -156,6 +165,48 @@
         <option value="class_3_largetruckwithtrailer">Large Truck with Trailer</option> 
         </select>
       </div>
+      
+      <div class="input-group" id="calaxPoints" style="display: none;">
+         <label for="entry_calax">Entry Point:</label>
+         <select id="entry_calax" name="entry_calax" required>
+           <option value="" selected disabled>Select Entry Point</option>
+           <option value="Santa Rosa-Tagaytay">Santa Rosa-Tagaytay</option>
+           <option value="Laguna Boulevard">Laguna Boulevard</option>
+           <option value="Technopark">Technopark</option>
+           <option value="Greenfield">Greenfield</option>
+         </select>
+ 
+         <label for="exit_calax">Exit Point:</label>
+         <select id="exit_calax" name="exit_calax" required>
+           <option value="" selected disabled>Select Exit Point</option>
+           <option value="Silang East">Silang East</option>
+           <option value="Sta Rosa - Tagaytay">Santa Rosa - Tagaytay</option>
+           <option value="Laguna Boulevard">Laguna Boulevard</option>
+         </select>
+ 
+         <label for="class_calax">Class:</label>
+         <select id="class_calax" name="class_calax" required>
+           <option value="" selected disabled>Select Class</option>
+           <option value="class_1">Class 1</option>
+           <option value="class_2">Class 2</option>
+           <option value="class_3">Class 3</option>
+         </select>
+
+         <label for="vehicle_calax">Vehicle:</label>
+         <select id="vehicle_calax" name="vehicle_calax" required>
+         <option value="" selected disabled>Select Vehicle</option>
+         <option value="class_1_car">Car</option>
+         <option value="class_1_jeepney">Jeepney</option>
+         <option value="class_1_Van">Van</option>
+         <option value="class_1_pickup">Pick-Up</option>
+         <option value="class_1_Motorcycle">Motorcycle</option> 
+         <option value="class_2_bus">Bus</option> 
+         <option value="class_2_truck">Truck</option> 
+         <option value="class_3_largetruck">Large Truck</option> 
+         <option value="class_3_largetruckwithtrailer">Large Truck with Trailer</option> 
+         </select>
+         </div>
+
 
       <button type="button" onclick="calculateToll()">Calculate Toll Fee</button>
     </form>
@@ -164,22 +215,26 @@
   </div>
 
   <script>
-    function toggleExpresswayFields() {
-  var selectedExpressway = document.getElementById('expressway').value;
-  var tplexFields = document.getElementById('tplexPoints');
-  var nlexSctexFields = document.getElementById('nlexSctexPoints');
-
-  if (selectedExpressway === 'TPLEX') {
-    tplexFields.style.display = 'block';
-    nlexSctexFields.style.display = 'none';
-  } else if (selectedExpressway === 'NLEX-SCTEX') {
-    tplexFields.style.display = 'none';
-    nlexSctexFields.style.display = 'block';
-
-    // Pass the ID 'vehicle_nlex_sctex' as the second argument
-    toggleVehicleOptions(document.getElementById("class_nlex_sctex","class_tplex").value, 'vehicle_nlex_sctex','vehicle_tplex');
-  }
-}
+   function toggleExpresswayFields() {
+     var selectedExpressway = document.getElementById('expressway').value;
+     var tplexFields = document.getElementById('tplexPoints');
+     var nlexSctexFields = document.getElementById('nlexSctexPoints');
+     var calaxFields = document.getElementById('calaxPoints'); 
+   
+     if (selectedExpressway === 'TPLEX') {
+       tplexFields.style.display = 'block';
+       nlexSctexFields.style.display = 'none';
+       calaxFields.style.display = 'none'; 
+     } else if (selectedExpressway === 'NLEX-SCTEX') {
+       tplexFields.style.display = 'none';
+       nlexSctexFields.style.display = 'block';
+       calaxFields.style.display = 'none'; 
+     } else if (selectedExpressway === 'CALAX') {
+       tplexFields.style.display = 'none';
+       nlexSctexFields.style.display = 'none';
+       calaxFields.style.display = 'block'; 
+     }
+   }
 
 function toggleVehicleOptions(selectedClass, vehicleDropdownId) {
   const class1Vehicles = ["car", "jeepney", "Van", "pickup", "Motorcycle"];
@@ -236,31 +291,56 @@ document.getElementById("class_tplex").addEventListener("change", function () {
   }
 });
 
-    function calculateToll() {
+document.getElementById("class_calax").addEventListener("change", function () {
+  const selectedClass = this.value;
   const selectedExpressway = document.getElementById('expressway').value;
-  let entryPoint, exitPoint, selectedClass, selectedVehicle;
 
-  if (selectedExpressway === 'TPLEX') {
-    entryPoint = document.getElementById('entry_tplex').value;
-    exitPoint = document.getElementById('exit_tplex').value;
-    selectedClass = document.getElementById('class_tplex').value;
-    selectedVehicle = document.getElementById('vehicle_tplex').value;
-  } else if (selectedExpressway === 'NLEX-SCTEX') {
-    entryPoint = document.getElementById('entry_nlex_sctex').value;
-    exitPoint = document.getElementById('exit_nlex_sctex').value;
-    selectedClass = document.getElementById('class_nlex_sctex').value;
-    selectedVehicle = document.getElementById('vehicle_nlex_sctex').value;
+  if (selectedExpressway === 'CALAX') {
+    toggleVehicleOptions(selectedClass, "vehicle_calax");
   }
+});
 
-  let tollFee = calculateTollFee(selectedExpressway, entryPoint, exitPoint, selectedClass, selectedVehicle);
+function toggleCalaxFields() {
+      var calaxFields = document.getElementById('calaxPoints');
+      calaxFields.style.display = 'block';
+
+      var tplexFields = document.getElementById('tplexPoints');
+      tplexFields.style.display = 'none';
+
+      var nlexSctexFields = document.getElementById('nlexSctexPoints');
+      nlexSctexFields.style.display = 'none';
+    }
+
+    function calculateToll() {
+      const selectedExpressway = document.getElementById('expressway').value;
+      let entryPoint, exitPoint, selectedClass, selectedVehicle;
+
+      if (selectedExpressway === 'TPLEX') {
+        entryPoint = document.getElementById('entry_tplex').value;
+        exitPoint = document.getElementById('exit_tplex').value;
+        selectedClass = document.getElementById('class_tplex').value;
+        selectedVehicle = document.getElementById('vehicle_tplex').value;
+      } else if (selectedExpressway === 'NLEX-SCTEX') {
+        entryPoint = document.getElementById('entry_nlex_sctex').value;
+        exitPoint = document.getElementById('exit_nlex_sctex').value;
+        selectedClass = document.getElementById('class_nlex_sctex').value;
+        selectedVehicle = document.getElementById('vehicle_nlex_sctex').value;
+      } else if (selectedExpressway === 'CALAX') {
+        entryPoint = document.getElementById('entry_calax').value;
+        exitPoint = document.getElementById('exit_calax').value;
+        selectedClass = document.getElementById('class_calax').value;
+        selectedVehicle = document.getElementById('vehicle_calax').value;
+      }
+
+      let tollFee = calculateTollFee(selectedExpressway, entryPoint, exitPoint, selectedClass, selectedVehicle);
   
-  displayTollFee(tollFee);
+      displayTollFee(tollFee);
 }
 
 function calculateTollFee(expressway, entryPoint, exitPoint, vehicleClass, vehicleType) {
     const tollFeeStructure = {
     TPLEX: {
-        'La Paz - Victoria': {
+        'Victoria - LPZ': {
          class_1_car: 30.00,
          class_1_jeepney: 30.00,
          class_1_Van: 30.00,
@@ -271,38 +351,599 @@ function calculateTollFee(expressway, entryPoint, exitPoint, vehicleClass, vehic
          class_3_largetruck: 91.00,
          class_3_largetruckwithtrailer: 91.00,
         },
-         'La Paz - Gerona': {
-         class_1_car: 30.00,
-         class_1_jeepney: 30.00,
-         class_1_Van: 30.00,
-         class_1_pickup: 30.00,
-         class_1_Motorcycle: 30.00,
-         class_2_bus: 76.00,
-         class_2_truck: 76.00,
-         class_3_largetruck: 91.00,
-         class_3_largetruckwithtrailer: 91.00,
+         'Gerona - LPZ': {
+         class_1_car: 58.00,
+         class_1_jeepney: 58.00,
+         class_1_Van: 58.00,
+         class_1_pickup: 58.00,
+         class_1_Motorcycle: 58.00,
+         class_2_bus: 145.00,
+         class_2_truck: 145.00,
+         class_3_largetruck: 175.00,
+         class_3_largetruckwithtrailer: 175.00,
          },
-         'La Paz - Victoria': {
-         class_1_car: 30.00,
-         class_1_jeepney: 30.00,
-         class_1_Van: 30.00,
-         class_1_pickup: 30.00,
-         class_1_Motorcycle: 30.00,
-         class_2_bus: 76.00,
-         class_2_truck: 76.00,
-         class_3_largetruck: 91.00,
-         class_3_largetruckwithtrailer: 91.00,
+         'Gerona - VCTRIA': {
+         class_1_car: 28.00,
+         class_1_jeepney: 28.00,
+         class_1_Van: 28.00,
+         class_1_pickup: 28.00,
+         class_1_Motorcycle: 28.00,
+         class_2_bus: 70.00,
+         class_2_truck: 70.00,
+         class_3_largetruck: 84.00,
+         class_3_largetruckwithtrailer: 84.00,
          },
-         'La Paz - Victoria': {
-         class_1_car: 30.00,
-         class_1_jeepney: 30.00,
-         class_1_Van: 30.00,
-         class_1_pickup: 30.00,
-         class_1_Motorcycle: 30.00,
-         class_2_bus: 76.00,
-         class_2_truck: 76.00,
-         class_3_largetruck: 91.00,
-         class_3_largetruckwithtrailer: 91.00,
+         'Paniqui - LPZ': {
+         class_1_car: 79.00,
+         class_1_jeepney: 79.00,
+         class_1_Van: 79.00,
+         class_1_pickup: 79.00,
+         class_1_Motorcycle: 79.00,
+         class_2_bus: 197.00,
+         class_2_truck: 197.00,
+         class_3_largetruck: 237.00,
+         class_3_largetruckwithtrailer: 237.00,
+      },
+         'Paniqui - VCTRIA': {
+         class_1_car: 49.00,
+         class_1_jeepney: 49.00,
+         class_1_Van: 49.00,
+         class_1_pickup: 49.00,
+         class_1_Motorcycle: 49.00,
+         class_2_bus: 122.00,
+         class_2_truck: 122.00,
+         class_3_largetruck: 146.00,
+         class_3_largetruckwithtrailer: 146.00,
+      },
+         'Paniqui - GRNA': {
+         class_1_car: 21.00,
+         class_1_jeepney: 21.00,
+         class_1_Van: 21.00,
+         class_1_pickup: 21.00,
+         class_1_Motorcycle: 21.00,
+         class_2_bus: 52.00,
+         class_2_truck: 52.00,
+         class_3_largetruck: 62.00,
+         class_3_largetruckwithtrailer: 62.00,
+      },
+         'Moncada - LPZ': {
+         class_1_car: 99.00,
+         class_1_jeepney: 99.00,
+         class_1_Van: 99.00,
+         class_1_pickup: 99.00,
+         class_1_Motorcycle: 99.00,
+         class_2_bus: 247.00,
+         class_2_truck: 247.00,
+         class_3_largetruck: 396.00,
+         class_3_largetruckwithtrailer: 396.00,
+      },
+         'Moncada - VCTRIA': {
+         class_1_car: 69.00,
+         class_1_jeepney: 69.00,
+         class_1_Van: 69.00,
+         class_1_pickup: 69.00,
+         class_1_Motorcycle: 69.00,
+         class_2_bus: 171.00,
+         class_2_truck: 171.00,
+         class_3_largetruck: 206.00,
+         class_3_largetruckwithtrailer: 206.00,
+      },
+         'Moncada - GRNA': {
+         class_1_car: 41.00,
+         class_1_jeepney: 41.00,
+         class_1_Van: 41.00,
+         class_1_pickup: 41.00,
+         class_1_Motorcycle: 41.00,
+         class_2_bus: 102.00,
+         class_2_truck: 102.00,
+         class_3_largetruck: 122.00,
+         class_3_largetruckwithtrailer: 122.00,
+      },
+         'Moncada - PNQUI': {
+         class_1_car: 20.00,
+         class_1_jeepney: 20.00,
+         class_1_Van: 20.00,
+         class_1_pickup: 20.00,
+         class_1_Motorcycle: 20.00,
+         class_2_bus: 50.00,
+         class_2_truck: 50.00,
+         class_3_largetruck: 60.00,
+         class_3_largetruckwithtrailer: 60.00,
+      },
+         'Carmen - LPZ': {
+         class_1_car: 164.00,
+         class_1_jeepney: 164.00,
+         class_1_Van: 164.00,
+         class_1_pickup: 164.00,
+         class_1_Motorcycle: 164.00,
+         class_2_bus: 410.00,
+         class_2_truck: 410.00,
+         class_3_largetruck: 492.00,
+         class_3_largetruckwithtrailer: 492.00,
+      },
+         'Carmen - VCTRIA': {
+         class_1_car: 134.00,
+         class_1_jeepney: 134.00,
+         class_1_Van: 134.00,
+         class_1_pickup: 134.00,
+         class_1_Motorcycle: 134.00,
+         class_2_bus: 334.00,
+         class_2_truck: 334.00,
+         class_3_largetruck: 401.00,
+         class_3_largetruckwithtrailer: 401.00,
+      },
+         'Carmen - GRNA': {
+         class_1_car: 106.00,
+         class_1_jeepney: 106.00,
+         class_1_Van: 106.00,
+         class_1_pickup: 106.00,
+         class_1_Motorcycle: 106.00,
+         class_2_bus: 264.00,
+         class_2_truck: 264.00,
+         class_3_largetruck: 317.00,
+         class_3_largetruckwithtrailer: 317.00,
+      },
+         'Carmen - PNQUI': {
+         class_1_car: 85.00,
+         class_1_jeepney: 85.00,
+         class_1_Van: 85.00,
+         class_1_pickup: 85.00,
+         class_1_Motorcycle: 85.00,
+         class_2_bus: 213.00,
+         class_2_truck: 213.00,
+         class_3_largetruck: 255.00,
+         class_3_largetruckwithtrailer: 255.00,
+      },
+         'Carmen - MNCDA': {
+         class_1_car: 65.00,
+         class_1_jeepney: 65.00,
+         class_1_Van: 65.00,
+         class_1_pickup: 65.00,
+         class_1_Motorcycle: 65.00,
+         class_2_bus: 163.00,
+         class_2_truck: 163.00,
+         class_3_largetruck: 195.00,
+         class_3_largetruckwithtrailer: 195.00,
+      },
+         'Urdaneta - LPZ': {
+         class_1_car: 216.00,
+         class_1_jeepney: 216.00,
+         class_1_Van: 216.00,
+         class_1_pickup: 216.00,
+         class_1_Motorcycle: 216.00,
+         class_2_bus: 540.00,
+         class_2_truck: 540.00,
+         class_3_largetruck: 648.00,
+         class_3_largetruckwithtrailer: 648.00,
+      },
+         'Urdaneta - VCTRIA': {
+         class_1_car: 186.00,
+         class_1_jeepney: 186.00,
+         class_1_Van: 186.00,
+         class_1_pickup: 186.00,
+         class_1_Motorcycle: 186.00,
+         class_2_bus: 464.00,
+         class_2_truck: 464.00,
+         class_3_largetruck: 557.00,
+         class_3_largetruckwithtrailer: 557.00,
+      },
+         'Urdaneta - GRNA': {
+         class_1_car: 158.00,
+         class_1_jeepney: 158.00,
+         class_1_Van: 158.00,
+         class_1_pickup: 158.00,
+         class_1_Motorcycle: 158.00,
+         class_2_bus: 394.00,
+         class_2_truck: 394.00,
+         class_3_largetruck: 473.00,
+         class_3_largetruckwithtrailer: 473.00,
+      },
+         'Urdaneta - PNQUI': {
+         class_1_car: 137.00,
+         class_1_jeepney: 137.00,
+         class_1_Van: 137.00,
+         class_1_pickup: 137.00,
+         class_1_Motorcycle: 137.00,
+         class_2_bus: 343.00,
+         class_2_truck: 343.00,
+         class_3_largetruck: 411.00,
+         class_3_largetruckwithtrailer: 411.00,
+      },
+         'Urdaneta - MNCDA': {
+         class_1_car: 117.00,
+         class_1_jeepney: 117.00,
+         class_1_Van: 117.00,
+         class_1_pickup: 117.00,
+         class_1_Motorcycle: 117.00,
+         class_2_bus: 293.00,
+         class_2_truck: 293.00,
+         class_3_largetruck: 351.00,
+         class_3_largetruckwithtrailer: 351.00,
+      },
+         'Urdaneta - CRMN': {
+         class_1_car: 52.00,
+         class_1_jeepney: 52.00,
+         class_1_Van: 52.00,
+         class_1_pickup: 52.00,
+         class_1_Motorcycle: 52.00,
+         class_2_bus: 130.00,
+         class_2_truck: 130.00,
+         class_3_largetruck: 156.00,
+         class_3_largetruckwithtrailer: 156.00,
+      },
+         'Binalonan - LPZ': {
+         class_1_car: 235.00,
+         class_1_jeepney: 235.00,
+         class_1_Van: 235.00,
+         class_1_pickup: 235.00,
+         class_1_Motorcycle: 235.00,
+         class_2_bus: 587.00,
+         class_2_truck: 587.00,
+         class_3_largetruck: 704.00,
+         class_3_largetruckwithtrailer: 704.00,
+      },
+         'Binalonan - VCTRIA': {
+         class_1_car: 205.00,
+         class_1_jeepney: 205.00,
+         class_1_Van: 205.00,
+         class_1_pickup: 205.00,
+         class_1_Motorcycle: 205.00,
+         class_2_bus: 511.00,
+         class_2_truck: 511.00,
+         class_3_largetruck: 614.00,
+         class_3_largetruckwithtrailer: 614.00,
+      },
+         'Binalonan - GRNA': {
+         class_1_car: 177.00,
+         class_1_jeepney: 177.00,
+         class_1_Van: 177.00,
+         class_1_pickup: 177.00,
+         class_1_Motorcycle: 177.00,
+         class_2_bus: 441.00,
+         class_2_truck: 441.00,
+         class_3_largetruck: 530.00,
+         class_3_largetruckwithtrailer: 530.00,
+      },
+         'Binalonan - PNQUI': {
+         class_1_car: 156.00,
+         class_1_jeepney: 156.00,
+         class_1_Van: 156.00,
+         class_1_pickup: 156.00,
+         class_1_Motorcycle: 156.00,
+         class_2_bus: 390.00,
+         class_2_truck: 390.00,
+         class_3_largetruck: 468.00,
+         class_3_largetruckwithtrailer: 468.00,
+      },
+         'Binalonan - MNCDA': {
+         class_1_car: 136.00,
+         class_1_jeepney: 136.00,
+         class_1_Van: 136.00,
+         class_1_pickup: 136.00,
+         class_1_Motorcycle: 136.00,
+         class_2_bus: 340.00,
+         class_2_truck: 340.00,
+         class_3_largetruck: 408.00,
+         class_3_largetruckwithtrailer: 408.00,
+      },
+         'Binalonan - CRMN': {
+         class_1_car: 71.00,
+         class_1_jeepney: 71.00,
+         class_1_Van: 71.00,
+         class_1_pickup: 71.00,
+         class_1_Motorcycle: 71.00,
+         class_2_bus: 177.00,
+         class_2_truck: 177.00,
+         class_3_largetruck: 213.00,
+         class_3_largetruckwithtrailer: 213.00,
+      },
+         'Binalonan - URDNTA': {
+         class_1_car: 19.00,
+         class_1_jeepney: 19.00,
+         class_1_Van: 19.00,
+         class_1_pickup: 19.00,
+         class_1_Motorcycle: 19.00,
+         class_2_bus: 47.00,
+         class_2_truck: 47.00,
+         class_3_largetruck: 57.00,
+         class_3_largetruckwithtrailer: 57.00,
+      },
+         'Pozorrubbio - LPZ': {
+         class_1_car: 270.00,
+         class_1_jeepney: 270.00,
+         class_1_Van: 270.00,
+         class_1_pickup: 270.00,
+         class_1_Motorcycle: 270.00,
+         class_2_bus: 675.00,
+         class_2_truck: 675.00,
+         class_3_largetruck: 810.00,
+         class_3_largetruckwithtrailer: 810.00,
+      },
+         'Pozorrubbio - VCTRIA': {
+         class_1_car: 240.00,
+         class_1_jeepney: 240.00,
+         class_1_Van: 240.00,
+         class_1_pickup: 240.00,
+         class_1_Motorcycle: 240.00,
+         class_2_bus: 599.00,
+         class_2_truck: 599.00,
+         class_3_largetruck: 719.00,
+         class_3_largetruckwithtrailer: 719.00,
+      },
+         'Pozorrubbio - GRNA': {
+         class_1_car: 212.00,
+         class_1_jeepney: 212.00,
+         class_1_Van: 212.00,
+         class_1_pickup: 212.00,
+         class_1_Motorcycle: 212.00,
+         class_2_bus: 599.00,
+         class_2_truck: 599.00,
+         class_3_largetruck: 719.00,
+         class_3_largetruckwithtrailer: 719.00,
+      },
+         'Pozorrubbio - PNQUI': {
+         class_1_car: 191.00,
+         class_1_jeepney: 191.00,
+         class_1_Van: 191.00,
+         class_1_pickup: 191.00,
+         class_1_Motorcycle: 191.00,
+         class_2_bus: 530.00,
+         class_2_truck: 530.00,
+         class_3_largetruck: 635.00,
+         class_3_largetruckwithtrailer: 635.00,
+      },
+         'Pozorrubbio - MNCDA': {
+         class_1_car: 171.00,
+         class_1_jeepney: 171.00,
+         class_1_Van: 171.00,
+         class_1_pickup: 171.00,
+         class_1_Motorcycle: 171.00,
+         class_2_bus: 478.00,
+         class_2_truck: 478.00,
+         class_3_largetruck: 573.00,
+         class_3_largetruckwithtrailer: 573.00,
+      },
+         'Pozorrubbio - CRMN': {
+         class_1_car: 106.00,
+         class_1_jeepney: 106.00,
+         class_1_Van: 106.00,
+         class_1_pickup: 106.00,
+         class_1_Motorcycle: 106.00,
+         class_2_bus: 428.00,
+         class_2_truck: 428.00,
+         class_3_largetruck: 514.00,
+         class_3_largetruckwithtrailer: 514.00,
+      },
+         'Pozorrubbio - URDNTA': {
+         class_1_car: 54.00,
+         class_1_jeepney: 54.00,
+         class_1_Van: 54.00,
+         class_1_pickup: 54.00,
+         class_1_Motorcycle: 54.00,
+         class_2_bus: 265.00,
+         class_2_truck: 265.00,
+         class_3_largetruck: 318.00,
+         class_3_largetruckwithtrailer: 318.00,
+      },
+         'Pozorrubbio - BNLN': {
+         class_1_car: 35.00,
+         class_1_jeepney: 35.00,
+         class_1_Van: 35.00,
+         class_1_pickup: 35.00,
+         class_1_Motorcycle: 35.00,
+         class_2_bus: 88.00,
+         class_2_truck: 88.00,
+         class_3_largetruck: 106.00,
+         class_3_largetruckwithtrailer: 106.00,
+      },
+         'Sison - LPZ': {
+         class_1_car: 290.00,
+         class_1_jeepney: 290.00,
+         class_1_Van: 290.00,
+         class_1_pickup: 290.00,
+         class_1_Motorcycle: 290.00,
+         class_2_bus: 726.00,
+         class_2_truck: 726.00,
+         class_3_largetruck: 871.00,
+         class_3_largetruckwithtrailer: 871.00,
+      },
+         'Sison - VCTRIA': {
+         class_1_car: 260.00,
+         class_1_jeepney: 260.00,
+         class_1_Van: 260.00,
+         class_1_pickup: 260.00,
+         class_1_Motorcycle: 260.00,
+         class_2_bus: 651.00,
+         class_2_truck: 651.00,
+         class_3_largetruck: 781.00,
+         class_3_largetruckwithtrailer: 781.00,
+      },
+         'Sison - GRNA': {
+         class_1_car: 232.00,
+         class_1_jeepney: 232.00,
+         class_1_Van: 232.00,
+         class_1_pickup: 232.00,
+         class_1_Motorcycle: 232.00,
+         class_2_bus: 581.00,
+         class_2_truck: 581.00,
+         class_3_largetruck: 697.00,
+         class_3_largetruckwithtrailer: 697.00,
+      },
+         'Sison - PNQUI': {
+         class_1_car: 212.00,
+         class_1_jeepney: 212.00,
+         class_1_Van: 212.00,
+         class_1_pickup: 212.00,
+         class_1_Motorcycle: 212.00,
+         class_2_bus: 529.00,
+         class_2_truck: 529.00,
+         class_3_largetruck: 635.00,
+         class_3_largetruckwithtrailer: 635.00,
+      },
+         'Sison - MNCDA': {
+         class_1_car: 192.00,
+         class_1_jeepney: 192.00,
+         class_1_Van: 192.00,
+         class_1_pickup: 192.00,
+         class_1_Motorcycle: 192.00,
+         class_2_bus: 479.00,
+         class_2_truck: 479.00,
+         class_3_largetruck: 575.00,
+         class_3_largetruckwithtrailer: 575.00,
+      },
+         'Sison - CRMN': {
+         class_1_car: 127.00,
+         class_1_jeepney: 127.00,
+         class_1_Van: 127.00,
+         class_1_pickup: 127.00,
+         class_1_Motorcycle: 127.00,
+         class_2_bus: 316.00,
+         class_2_truck: 316.00,
+         class_3_largetruck: 380.00,
+         class_3_largetruckwithtrailer: 380.00,
+      },
+         'Sison - URDNTA': {
+         class_1_car: 75.00,
+         class_1_jeepney: 75.00,
+         class_1_Van: 75.00,
+         class_1_pickup: 75.00,
+         class_1_Motorcycle: 75.00,
+         class_2_bus: 186.00,
+         class_2_truck: 186.00,
+         class_3_largetruck: 224.00,
+         class_3_largetruckwithtrailer: 224.00,
+      },
+         'Sison - BNLN': {
+         class_1_car: 56.00,
+         class_1_jeepney: 56.00,
+         class_1_Van: 56.00,
+         class_1_pickup: 56.00,
+         class_1_Motorcycle: 56.00,
+         class_2_bus: 139.00,
+         class_2_truck: 139.00,
+         class_3_largetruck: 167.00,
+         class_3_largetruckwithtrailer: 167.00,
+      },
+         'Sison - PZRBIO': {
+         class_1_car: 21.00,
+         class_1_jeepney: 21.00,
+         class_1_Van: 21.00,
+         class_1_pickup: 21.00,
+         class_1_Motorcycle: 21.00,
+         class_2_bus: 51.00,
+         class_2_truck: 51.00,
+         class_3_largetruck: 62.00,
+         class_3_largetruckwithtrailer: 62.00,
+      },
+         'Rosario - LPZ': {
+         class_1_car: 311.00,
+         class_1_jeepney: 311.00,
+         class_1_Van: 311.00,
+         class_1_pickup: 311.00,
+         class_1_Motorcycle: 311.00,
+         class_2_bus: 778.00,
+         class_2_truck: 778.00,
+         class_3_largetruck: 933.00,
+         class_3_largetruckwithtrailer: 933.00,
+      },
+         'Rosario - VCTRIA': {
+         class_1_car: 281.00,
+         class_1_jeepney: 281.00,
+         class_1_Van: 281.00,
+         class_1_pickup: 281.00,
+         class_1_Motorcycle: 281.00,
+         class_2_bus: 702.00,
+         class_2_truck: 702.00,
+         class_3_largetruck: 843.00,
+         class_3_largetruckwithtrailer: 843.00,
+      },
+         'Rosario - GRNA': {
+         class_1_car: 253.00,
+         class_1_jeepney: 253.00,
+         class_1_Van: 253.00,
+         class_1_pickup: 253.00,
+         class_1_Motorcycle: 253.00,
+         class_2_bus: 632.00,
+         class_2_truck: 632.00,
+         class_3_largetruck: 759.00,
+         class_3_largetruckwithtrailer: 759.00,
+      },
+         'Rosario - PNQUI': {
+         class_1_car: 232.00,
+         class_1_jeepney: 232.00,
+         class_1_Van: 232.00,
+         class_1_pickup: 232.00,
+         class_1_Motorcycle: 232.00,
+         class_2_bus: 581.00,
+         class_2_truck: 581.00,
+         class_3_largetruck: 697.00,
+         class_3_largetruckwithtrailer: 697.00,
+      },
+         'Rosario - MNCDA': {
+         class_1_car: 212.00,
+         class_1_jeepney: 212.00,
+         class_1_Van: 212.00,
+         class_1_pickup: 212.00,
+         class_1_Motorcycle: 212.00,
+         class_2_bus: 531.00,
+         class_2_truck: 531.00,
+         class_3_largetruck: 637.00,
+         class_3_largetruckwithtrailer: 637.00,
+      },
+         'Rosario - CRMN': {
+         class_1_car: 147.00,
+         class_1_jeepney: 147.00,
+         class_1_Van: 147.00,
+         class_1_pickup: 147.00,
+         class_1_Motorcycle: 147.00,
+         class_2_bus: 368.00,
+         class_2_truck: 368.00,
+         class_3_largetruck: 442.00,
+         class_3_largetruckwithtrailer: 442.00,
+      },
+         'Rosario - URDNTA': {
+         class_1_car: 95.00,
+         class_1_jeepney: 95.00,
+         class_1_Van: 95.00,
+         class_1_pickup: 95.00,
+         class_1_Motorcycle: 95.00,
+         class_2_bus: 238.00,
+         class_2_truck: 238.00,
+         class_3_largetruck: 286.00,
+         class_3_largetruckwithtrailer: 286.00,
+      },
+         'Rosario - BNLN': {
+         class_1_car: 76.00,
+         class_1_jeepney: 76.00,
+         class_1_Van: 76.00,
+         class_1_pickup: 76.00,
+         class_1_Motorcycle: 76.00,
+         class_2_bus: 191.00,
+         class_2_truck: 191.00,
+         class_3_largetruck: 229.00,
+         class_3_largetruckwithtrailer: 229.00,
+      },
+         'Rosario - PZRBIO': {
+         class_1_car: 41.00,
+         class_1_jeepney: 41.00,
+         class_1_Van: 41.00,
+         class_1_pickup: 41.00,
+         class_1_Motorcycle: 41.00,
+         class_2_bus: 103.00,
+         class_2_truck: 103.00,
+         class_3_largetruck: 124.00,
+         class_3_largetruckwithtrailer: 124.00,
+      },
+         'Rosario - SSN': {
+         class_1_car: 21.00,
+         class_1_jeepney: 21.00,
+         class_1_Van: 21.00,
+         class_1_pickup: 21.00,
+         class_1_Motorcycle: 21.00,
+         class_2_bus: 52.00,
+         class_2_truck: 52.00,
+         class_3_largetruck: 62.00,
+         class_3_largetruckwithtrailer: 62.00,
        }
       },
       
@@ -4822,7 +5463,108 @@ function calculateTollFee(expressway, entryPoint, exitPoint, vehicleClass, vehic
          class_2_truck: 50.00,
          class_3_largetruck: 75.00,
          class_3_largetruckwithtrailer: 75.00,
-      }}  
+      }},
+         'CALAX': {
+        'Santa Rosa-Tagaytay - Silang East': {
+         class_1_car: 27.00,
+         class_1_jeepney: 27.00,
+         class_1_Van: 27.00,
+         class_1_pickup: 27.00,
+         class_1_Motorcycle: 27.00,
+         class_2_bus: 55.00,
+         class_2_truck: 55.00,
+         class_3_largetruck: 83.00,
+         class_3_largetruckwithtrailer: 83.00,
+      },
+      'Laguna Boulevard - Silang East': {
+         class_1_car: 33.00,
+         class_1_jeepney: 33.00,
+         class_1_Van: 33.00,
+         class_1_pickup: 33.00,
+         class_1_Motorcycle: 33.00,
+         class_2_bus: 67.00,
+         class_2_truck: 67.00,
+         class_3_largetruck: 100.00,
+         class_3_largetruckwithtrailer: 100.00,
+      },  
+      'Laguna Boulevard - Sta Rosa - Tagaytay': {
+         class_1_car: 14.00,
+         class_1_jeepney: 14.00,
+         class_1_Van: 14.00,
+         class_1_pickup: 14.00,
+         class_1_Motorcycle: 14.00,
+         class_2_bus: 29.00,
+         class_2_truck: 29.00,
+         class_3_largetruck: 43.00,
+         class_3_largetruckwithtrailer: 43.00,
+      },  
+      'Technopark - Silang East': {
+         class_1_car: 48.00,
+         class_1_jeepney: 48.00,
+         class_1_Van: 48.00,
+         class_1_pickup: 48.00,
+         class_1_Motorcycle: 48.00,
+         class_2_bus: 97.00,
+         class_2_truck: 97.00,
+         class_3_largetruck: 146.00,
+         class_3_largetruckwithtrailer: 146.00,
+      },  
+      'Technopark - Sta Rosa - Tagaytay': {
+         class_1_car: 29.00,
+         class_1_jeepney: 29.00,
+         class_1_Van: 29.00,
+         class_1_pickup: 29.00,
+         class_1_Motorcycle: 29.00,
+         class_2_bus: 59.00,
+         class_2_truck: 59.00,
+         class_3_largetruck: 89.00,
+         class_3_largetruckwithtrailer: 89.00,
+      },
+      'Technopark - Laguna Boulevard': {
+         class_1_car: 15.00,
+         class_1_jeepney: 15.00,
+         class_1_Van: 15.00,
+         class_1_pickup: 15.00,
+         class_1_Motorcycle: 15.00,
+         class_2_bus: 30.00,
+         class_2_truck: 30.00,
+         class_3_largetruck: 45.00,
+         class_3_largetruckwithtrailer: 45.00,
+      },  
+      'Greenfield - Silang East': {
+         class_1_car: 64.00,
+         class_1_jeepney: 64.00,
+         class_1_Van: 64.00,
+         class_1_pickup: 64.00,
+         class_1_Motorcycle: 64.00,
+         class_2_bus: 128.00,
+         class_2_truck: 128.00,
+         class_3_largetruck: 192.00,
+         class_3_largetruckwithtrailer: 192.00,
+      },  
+      'Greenfield - Sta Rosa - Tagaytay': {
+         class_1_car: 44.00,
+         class_1_jeepney: 44.00,
+         class_1_Van: 44.00,
+         class_1_pickup: 44.00,
+         class_1_Motorcycle: 44.00,
+         class_2_bus: 89.00,
+         class_2_truck: 89.00,
+         class_3_largetruck: 134.00,
+         class_3_largetruckwithtrailer: 134.00,
+      },
+      'Greenfield - Laguna Boulevard': {
+         class_1_car: 30.00,
+         class_1_jeepney: 30.00,
+         class_1_Van: 30.00,
+         class_1_pickup: 30.00,
+         class_1_Motorcycle: 30.00,
+         class_2_bus: 60.00,
+         class_2_truck: 60.00,
+         class_3_largetruck: 91.00,
+         class_3_largetruckwithtrailer: 91.00,
+      }},  
+
 
   }
     const class1Fee = tollFeeStructure[expressway]?.[`${entryPoint} - ${exitPoint}`]?.[`class_1_${vehicleType}`] || 0;
@@ -4835,10 +5577,17 @@ function calculateTollFee(expressway, entryPoint, exitPoint, vehicleClass, vehic
     return totalFee;
   }
 
-  function displayTollFee(fee) {
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `Total Toll Fee: ₱ ${fee}`; 
-  } 
+ 
+function displayTollFee(tollFee) {
+  const resultElement = document.getElementById('result');
+
+  if (tollFee === 0) {
+    resultElement.innerHTML = "N/A"; // Display "N/A" instead of 0
+  } else {
+    resultElement.innerHTML = "Toll Fee: ₱ " + tollFee.toFixed(2);
+  }
+
+}
 </script>
 </body>
 </html>
